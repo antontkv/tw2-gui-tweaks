@@ -754,6 +754,13 @@ import class CGuiMainMenu extends CGuiPanel
 	{
 		InsertMenuButton( AS_MenuItems, MM_BTN_CLOSE, StrUpperUTF( GetLocStringByKeyExt( "menuClose" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuClose_t" ) ) );
 
+		// Menu Tweaks +++ Move Save option
+		if( CanSaveRightNow() )
+		{
+			InsertMenuButton( AS_MenuItems, MM_BTN_SAVE, StrUpperUTF( GetLocStringByKeyExt( "menuSave" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuSave_t" ) ) );
+		}
+		// Menu Tweaks ---
+
 		// Fill GUI panels selector
 		if ( theGame.IsUsingPad() && !areHotKeyPanelsBlocked )
 		{
@@ -763,10 +770,7 @@ import class CGuiMainMenu extends CGuiPanel
 			InsertMenuButton( AS_MenuItems, MM_BTN_SHOW_NAV,       StrUpperUTF( GetLocStringByKeyExt( "panelSelector4" ) ), StrUpperUTF( GetLocStringByKeyExt( "panelSelector4t" ) ) );
 		}
 		
-		if( CanSaveRightNow() )
-		{
-			InsertMenuButton( AS_MenuItems, MM_BTN_SAVE, StrUpperUTF( GetLocStringByKeyExt( "menuSave" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuSave_t" ) ) );
-		}
+		// Menu Tweaks: Move Save option: Moved lines up
 		InsertMenuButton( AS_MenuItems, MM_BTN_LOAD_GAME, StrUpperUTF( GetLocStringByKeyExt( "menuLoad" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuLoad_t" ) ) );
 		InsertMenuButton( AS_MenuItems, MM_BTN_OPTIONS, StrUpperUTF( GetLocStringByKeyExt( "menuSettings" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuSettings_t" ) ) );
 		InsertMenuButton( AS_MenuItems, MM_BTN_EXIT_GAME, StrUpperUTF( GetLocStringByKeyExt( "menuExitCurrentGame" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuExitCurrentGame_t" ) ) );
