@@ -541,11 +541,11 @@ class CMenuList extends CSlot
       this.m_iCurrentPosition = iPosition;
       if(this.m_iCurrentPosition < 0)
       {
-         this.m_iCurrentPosition = 0;
+         this.m_iCurrentPosition = this.m_aItemsData.length - 1;
       }
       else if(this.m_iCurrentPosition > this.m_aItemsData.length - 1)
       {
-         this.m_iCurrentPosition = this.m_aItemsData.length - 1;
+         this.m_iCurrentPosition = 0;
       }
       this.m_iCurrentVisiblePosition = this.m_iCurrentPosition - this.m_iCurrentOffset;
       if(this.m_iCurrentVisiblePosition < 0)
@@ -642,7 +642,7 @@ class CMenuList extends CSlot
                   this.UpdateListData();
                   this.UpdateGraphic();
                }
-               else if(this.m_iCurrentOffset > 0)
+               else
                {
                   this.ScrollUsed(this,this.m_iCurrentOffset - 1);
                   this.m_mcScroll.SetNewPosition(this.m_iCurrentOffset);
