@@ -2,7 +2,7 @@
 /** Witcher Script file
 /***********************************************************************/
 /** GUI Main Menu
-/** Copyright © 2011
+/** Copyright ï¿½ 2011
 /***********************************************************************/
 exec function DiffChanged()
 {
@@ -783,6 +783,10 @@ import class CGuiMainMenu extends CGuiPanel
 	{
 		//Tutorial should be only enabled from "New Game" option
 		//InsertMenuButton( AS_MenuItems, MM_BTN_TUTORIAL, GetLocStringByKeyExt( "tutorial" ), GetLocStringByKeyExt( "tutorial_t" ) );
+
+		// Menu Tweaks +++ Continue from main menu option
+		InsertMenuButton( AS_MenuItems, MM_BTN_CLOSE, StrUpperUTF( GetLocStringByKeyExt( "menuClose" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuClose_t" ) ) );
+		// Menu Tweaks ---
 		InsertMenuButton( AS_MenuItems, MM_BTN_ARENA, StrUpperUTF( GetLocStringByKeyExt( "arena" ) ), StrUpperUTF( GetLocStringByKeyExt( "arena_t" ) ) );
 		InsertMenuButton( AS_MenuItems, MM_BTN_NEW_GAME, StrUpperUTF( GetLocStringByKeyExt( "menuNew" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuNew_t" ) ) );
 		InsertMenuButton( AS_MenuItems, MM_BTN_LOAD_GAME, StrUpperUTF( GetLocStringByKeyExt( "menuLoad" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuLoad_t" ) ) );
@@ -1286,6 +1290,13 @@ import class CGuiMainMenu extends CGuiPanel
 	{
 		switch( button )
 		{
+			// Menu Tweaks +++ Continue from main menu option
+			case MM_BTN_CLOSE:
+			{
+				InputLoadGame(0);
+				break;
+			}
+			// Menu Tweaks ---
 			case MM_BTN_TUTORIAL:
 			{
 				Tutorial( false );
