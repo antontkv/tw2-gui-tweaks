@@ -774,6 +774,9 @@ import class CGuiMainMenu extends CGuiPanel
 		InsertMenuButton( AS_MenuItems, MM_BTN_LOAD_GAME, StrUpperUTF( GetLocStringByKeyExt( "menuLoad" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuLoad_t" ) ) );
 		InsertMenuButton( AS_MenuItems, MM_BTN_OPTIONS, StrUpperUTF( GetLocStringByKeyExt( "menuSettings" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuSettings_t" ) ) );
 		InsertMenuButton( AS_MenuItems, MM_BTN_EXIT_GAME, StrUpperUTF( GetLocStringByKeyExt( "menuExitCurrentGame" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuExitCurrentGame_t" ) ) );
+		// Menu Tweaks +++ Add Game Exit option
+		InsertMenuButton( AS_MenuItems, MM_BTN_QUIT, StrUpperUTF( GetLocStringByKeyExt( "menuQuit" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuQuit_t" ) ) );
+		// Menu Tweaks ---
 	}
 	
 	private final function FillMainMenu( AS_MenuItems : int )
@@ -1269,6 +1272,13 @@ import class CGuiMainMenu extends CGuiPanel
 				ClosePanel();
 				break;
 			}
+			// Menu Tweaks +++ Add Game Exit option
+			case MM_BTN_QUIT:
+			{
+				QuitApplication();
+				break;
+			}
+			// Menu Tweaks ---
 		}
 	}
 	
