@@ -3,7 +3,7 @@
 /** Witcher Script file
 /***********************************************************************/
 /** Inventory gui panel
-/** Copyright © 2010 CD Projekt Red.
+/** Copyright ï¿½ 2010 CD Projekt Red.
 /***********************************************************************/
 
 class CGuiInventory extends CGuiPanel
@@ -335,6 +335,7 @@ class CGuiInventory extends CGuiPanel
 		
 		str = GetLocStringByKeyExt( NameToString( thePlayer.GetInventory().GetItemName( thePlayer.GetLastBook() ) ) + "_entry" );
 		theHud.InvokeOneArg("SetBookText", FlashValueFromString(str), AS_inventory );
+		FillInventory(); // Menu Tweaks +++ Show read status for books in the inventory menu
 	}
 
 	private final function UpgradeItem( itemIdxF, upgradeIdxF : float )

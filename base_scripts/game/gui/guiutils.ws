@@ -129,6 +129,13 @@ import class CGuiUtils extends CObject
 		theHud.SetFloat ( "Mass",		inventory.GetItemAttributeAdditive( itemId, 'item_weight' ), AS_item );
 		theHud.SetFloat	( "Price",		GetItemPrice( itemId, inventory ),	AS_item );
 		
+		// Menu Tweaks +++ Show read status for books in the inventory menu
+		if ( itemTags.Contains('SortTypeBook') )
+		{
+			theHud.SetBool("_alreadyRead", FactsDoesExist(NameToString(thePlayer.GetInventory().GetItemName( itemId )) + "_Examined"), AS_item);
+		}
+		// Menu Tweaks ---
+
 		// Elixirs
 		if ( itemTags.Contains('Elixir') )
 		{
