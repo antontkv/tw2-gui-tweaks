@@ -27762,17 +27762,8 @@ Push "vo"
 GetMember
 Push "ItemEnum"
 GetMember
-Push "TYPE_BOOK"
-GetMember
-Push "gui"
-GetVariable
-Push "vo"
-GetMember
-Push "ItemEnum"
-GetMember
 Push "TYPE_CRAFTING_SCHEMATICS"
 GetMember
-BitOr
 ToNumber
 StoreRegister 2
 Pop

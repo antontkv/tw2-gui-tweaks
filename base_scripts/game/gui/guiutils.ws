@@ -132,7 +132,7 @@ import class CGuiUtils extends CObject
 		// Menu Tweaks +++ Show read status for books in the inventory menu
 		if ( itemTags.Contains('SortTypeBook') )
 		{
-			theHud.SetBool("_alreadyRead", FactsDoesExist(NameToString(thePlayer.GetInventory().GetItemName( itemId )) + "_Examined"), AS_item);
+			theHud.SetBool("_alreadyRead", FactsDoesExist(NameToString(inventory.GetItemName( itemId )) + "_Examined"), AS_item);
 		}
 		// Menu Tweaks ---
 
