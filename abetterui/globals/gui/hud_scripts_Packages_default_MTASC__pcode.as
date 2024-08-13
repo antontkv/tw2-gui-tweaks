@@ -20469,21 +20469,6 @@ Add2
 Push "<BR/>"
 Add2
 SetMember
-Push "autoAlpha", 0, 1
-InitObject
-Push 15.5, register1, "uiRecieved"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
 }
 loc18c53:SetMember
 Push register1, "clearRecievedList"
