@@ -20093,6 +20093,21 @@ GetMember
 Push "collect"
 CallMethod
 Pop
+Push "autoAlpha", 100, 1
+InitObject
+Push 0.5, register1, "uiNav"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
 loc185d1:Push "autoAlpha", 90, 1
 InitObject
 Push 0.5, register1, "uiCombatMode"
@@ -20149,6 +20164,21 @@ Pop
 Push "autoAlpha", 0, 1
 InitObject
 Push 0.2, register1, "uiBuffs"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 0, 1
+InitObject
+Push 0.2, register1, "uiNav"
 GetMember
 Push 3, "com"
 GetVariable
@@ -20437,6 +20467,21 @@ GetMember
 Push "collect"
 CallMethod
 Pop
+Push "autoAlpha", 100, 1
+InitObject
+Push 0, register1, "uiNav"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
 Jump loc1afde
 loc132d:Push "autoAlpha", 0, 1
 InitObject
@@ -20471,6 +20516,21 @@ Pop
 Push "autoAlpha", 0, 1
 InitObject
 Push 0, register1, "uiBuffs"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 0, 1
+InitObject
+Push 0, register1, "uiNav"
 GetMember
 Push 3, "com"
 GetVariable
