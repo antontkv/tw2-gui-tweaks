@@ -20044,7 +20044,56 @@ Not
 If loc183a0
 Push undefined
 Return
-loc183a0:Push "autoAlpha", 90, 1
+loc183a0:Push register1, "m_bQuickItemsVisible"
+GetMember
+Not
+If loc185d1
+Push "autoAlpha", 100, 1
+InitObject
+Push 0.5, register1, "uiSelectedItems"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 100, 1
+InitObject
+Push 0.5, register1, "uiBarsPC"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 100, 1
+InitObject
+Push 0.5, register1, "uiBuffs"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+loc185d1:Push "autoAlpha", 90, 1
 InitObject
 Push 0.5, register1, "uiCombatMode"
 GetMember
@@ -20063,7 +20112,56 @@ Pop
 SetMember
 Push register1, "hideCombatMode"
 DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
+Push register1, "m_bQuickItemsVisible"
+GetMember
+Not
+If loc18348
 Push "autoAlpha", 0, 1
+InitObject
+Push 0.2, register1, "uiSelectedItems"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 0, 1
+InitObject
+Push 0.2, register1, "uiBarsPC"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 0, 1
+InitObject
+Push 0.2, register1, "uiBuffs"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+loc18348:Push "autoAlpha", 0, 1
 InitObject
 Push 0.2, register1, "uiCombatMode"
 GetMember
@@ -20278,7 +20376,114 @@ Pop
 loc1883b:SetMember
 Push register1, "setFastMenuActive"
 DefineFunction2 "", 1, 3, false, false, true, false, true, false, false, true, false, 2, "value" {
-Push register2, 1, register1, "_uFastMenu"
+Push register1, "m_bQuickItemsVisible"
+GetMember
+PushDuplicate
+Not
+If loc1278
+Pop
+Push register1, "uiCombatMode"
+GetMember
+Push "_visible"
+GetMember
+Not
+loc1278:Not
+If loc1afde
+Push register2
+Not
+If loc132d
+Push "autoAlpha", 100, 1
+InitObject
+Push 0, register1, "uiSelectedItems"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 100, 1
+InitObject
+Push 0, register1, "uiBarsPC"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 100, 1
+InitObject
+Push 0, register1, "uiBuffs"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Jump loc1afde
+loc132d:Push "autoAlpha", 0, 1
+InitObject
+Push 0, register1, "uiSelectedItems"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 0, 1
+InitObject
+Push 0, register1, "uiBarsPC"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 0, 1
+InitObject
+Push 0, register1, "uiBuffs"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+loc1afde:Push register2, 1, register1, "_uFastMenu"
 GetMember
 Push "setActive"
 CallMethod
@@ -21603,12 +21808,6 @@ Push register2, "length"
 GetMember
 loc1a077:Not
 If loc1a443
-Push register1, "uiBuffs"
-GetMember
-Push "_visible", 1
-Not
-Not
-SetMember
 Push 620, register2, "length"
 GetMember
 Push 9, 2, "Math"
