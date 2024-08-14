@@ -19528,6 +19528,15 @@ GetMember
 Push "RefreshAnchoredPositions"
 CallMethod
 Pop
+Push "GUICheckInCombat", 1, "flash"
+GetVariable
+Push "external"
+GetMember
+Push "ExternalInterface"
+GetMember
+Push "call"
+CallMethod
+Pop
 }
 SetMember
 Push register1, "Finalize"
