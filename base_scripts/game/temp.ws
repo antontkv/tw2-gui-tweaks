@@ -3050,14 +3050,3 @@ exec function GoT()
 {
 	theHud.m_hud.EnableTutorial();
 }
-
-exec function GUICheckInCombat()
-{
-	if (thePlayer.IsInCombat())
-	{
-		if(!theGame.GetIsPlayerOnArena() && !theGame.tutorialenabled )
-		{
-			theHud.m_fx.CombatModeStart();
-		}
-	}
-}

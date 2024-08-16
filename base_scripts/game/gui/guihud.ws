@@ -32,6 +32,13 @@ class CGuiHud
 
 	public var combatLogEnabled : bool;
 	default combatLogEnabled = true;
+
+	//++
+	private var modHUD_isHideHealth : bool;
+	private var modHUD_isHideSelectedItems : bool;
+	private var modHUD_isHideBuffs : bool;
+	private var modHUD_isHideMap : bool;
+	//--
 	
 	event OnGameStarting()
 	{
@@ -45,6 +52,14 @@ class CGuiHud
 		{
 			Log( "No mHUD found at the Scaleform side!" );
 		}
+
+		// +++
+		modHUD_isHideHealth = modHUD_getSettingsHideValue("HideHealth");
+		modHUD_isHideSelectedItems = modHUD_getSettingsHideValue("HideSelectedItems");
+		modHUD_isHideBuffs = modHUD_getSettingsHideValue("HideBuffs");
+		modHUD_isHideMap = modHUD_getSettingsHideValue("HideMap");
+		modHUD_applyHideValues();
+		// ---
 		
 		theHud.InvokeOneArg( "setIsFastMenuActive", FlashValueFromBoolean( false ), AS_hud );
 		
@@ -79,6 +94,34 @@ class CGuiHud
 			isTutorialPlayed = value == 1.0f;
 		}	
 	}
+
+	//+++
+	function modHUD_getSettingsHideValue(setting_name: string): bool
+	{
+		var value: float;
+
+		if (!theGame.ReadConfigParamFloat( "User", "HUDTweaks", setting_name, value ))
+			value = 0;
+
+		if (value <= 0)
+			return false;
+
+		return true;
+	}
+
+	public function modHUD_applyHideValues()
+	{
+		var arguments : array<CFlashValueScript>;
+		arguments.Clear();
+
+		arguments.PushBack(FlashValueFromBoolean(this.modHUD_isHideHealth));
+		arguments.PushBack(FlashValueFromBoolean(this.modHUD_isHideSelectedItems));
+		arguments.PushBack(FlashValueFromBoolean(this.modHUD_isHideBuffs));
+		arguments.PushBack(FlashValueFromBoolean(this.modHUD_isHideMap));
+
+		theHud.InvokeManyArgs("vHUD.modHUD_setHideValues", arguments);
+	}
+	//---
 	
 	final function UpdateKeyBindings()
 	{
@@ -1223,4 +1266,20 @@ function AddArmorIcon() : string
 function AddDamageIcon() : string
 {
 	return "<img src='img://globals/gui/icons/combatlog/dmg_12x12.dds'>";
+}
+
+exec function GUICheckInCombat()
+{
+	if (thePlayer.IsInCombat())
+	{
+		if(!theGame.GetIsPlayerOnArena() && !theGame.tutorialenabled )
+		{
+			theHud.m_fx.CombatModeStart();
+		}
+	}
+}
+
+exec function modHUD_setHideValues()
+{
+	theHud.m_hud.modHUD_applyHideValues();
 }

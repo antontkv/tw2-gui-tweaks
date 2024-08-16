@@ -19537,6 +19537,15 @@ GetMember
 Push "call"
 CallMethod
 Pop
+Push "modHUD_setHideValues", 1, "flash"
+GetVariable
+Push "external"
+GetMember
+Push "ExternalInterface"
+GetMember
+Push "call"
+CallMethod
+Pop
 }
 SetMember
 Push register1, "Finalize"
@@ -20036,6 +20045,18 @@ loc18372:Push register2
 Return
 }
 SetMember
+Push register1, "modHUD_setHideValues"
+DefineFunction2 "", 4, 6, false, false, true, false, true, false, false, true, false, 2, "isHideHealth", 3, "isHideSelectedItems", 4, "isHideBuffs", 5, "isHideMap" {
+Push register1, "modHUD_isHideHealth", register2
+SetMember
+Push register1, "modHUD_isHideSelectedItems", register3
+SetMember
+Push register1, "modHUD_isHideBuffs", register4
+SetMember
+Push register1, "modHUD_isHideMap", register5
+SetMember
+}
+SetMember
 Push register1, "modGUI_ShowHideModules"
 DefineFunction2 "", 2, 5, false, false, true, false, true, false, false, true, false, 2, "show", 3, "fade_timeout" {
 Push 0
@@ -20043,19 +20064,23 @@ StoreRegister 4
 Pop
 Push register2
 Not
-If loc0c67
+If loc0d7a
 Push 100
 StoreRegister 4
 Pop
-loc0c67:Push register1, "m_bQuickItemsVisible"
+loc0d7a:Push register1, "m_bQuickItemsVisible"
 GetMember
-If loc0c7c
+If loc0d8f
 Push undefined
 Return
-loc0c7c:Push register1, "modHUD_hasAnyBuffs"
+loc0d8f:Push register1, "modHUD_isHideBuffs"
 GetMember
 Not
-If loc0ce4
+If loc0e69
+Push register1, "modHUD_hasAnyBuffs"
+GetMember
+Not
+If loc0e08
 Push "autoAlpha", register4, 1
 InitObject
 Push register3, register1, "uiBuffs"
@@ -20071,8 +20096,8 @@ GetMember
 Push "collect"
 CallMethod
 Pop
-loc0ce4:Push register2
-If loc0d45
+loc0e08:Push register2
+If loc0e69
 Push "autoAlpha", register4, 1
 InitObject
 Push register3, register1, "uiBuffs"
@@ -20088,7 +20113,11 @@ GetMember
 Push "collect"
 CallMethod
 Pop
-loc0d45:Push "autoAlpha", register4, 1
+loc0e69:Push register1, "modHUD_isHideSelectedItems"
+GetMember
+Not
+If loc0ecc
+Push "autoAlpha", register4, 1
 InitObject
 Push register3, register1, "uiSelectedItems"
 GetMember
@@ -20103,6 +20132,10 @@ GetMember
 Push "collect"
 CallMethod
 Pop
+loc0ecc:Push register1, "modHUD_isHideHealth"
+GetMember
+Not
+If loc0f2f
 Push "autoAlpha", register4, 1
 InitObject
 Push register3, register1, "uiBarsPC"
@@ -20118,6 +20151,10 @@ GetMember
 Push "collect"
 CallMethod
 Pop
+loc0f2f:Push register1, "modHUD_isHideMap"
+GetMember
+Not
+If loc0f92
 Push "autoAlpha", register4, 1
 InitObject
 Push register3, register1, "uiNav"
@@ -20134,7 +20171,7 @@ Push "collect"
 CallMethod
 Pop
 }
-SetMember
+loc0f92:SetMember
 Push register1, "showCombatMode"
 DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
 Push register1, "isHudVisible"
@@ -21725,7 +21762,16 @@ loc1a077:Not
 If loc1a443
 Push register1, "modHUD_hasAnyBuffs", true
 SetMember
-Push register1, "m_bQuickItemsVisible"
+Push register1, "modHUD_isHideBuffs"
+GetMember
+If loc1a2de
+Push register1, "uiBuffs"
+GetMember
+Push "_visible", 1
+Not
+Not
+SetMember
+loc1a2de:Push register1, "m_bQuickItemsVisible"
 GetMember
 If loc0e76
 Push register1, "uiBuffs"
@@ -23622,6 +23668,14 @@ SetMember
 Push register1, "m_bQuickItemsVisible", true
 SetMember
 Push register1, "modHUD_hasAnyBuffs", false
+SetMember
+Push register1, "modHUD_isHideHealth", false
+SetMember
+Push register1, "modHUD_isHideSelectedItems", false
+SetMember
+Push register1, "modHUD_isHideBuffs", false
+SetMember
+Push register1, "modHUD_isHideMap", false
 SetMember
 loc1c0f8:Push "gui"
 GetVariable
