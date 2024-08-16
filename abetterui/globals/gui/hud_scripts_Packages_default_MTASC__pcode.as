@@ -20078,6 +20078,10 @@ GetMember
 Push "collect"
 CallMethod
 Pop
+Push register1, "modHUD_hasAnyBuffs"
+GetMember
+Not
+If loc1595
 Push "autoAlpha", 100, 1
 InitObject
 Push 0.5, register1, "uiBuffs"
@@ -20093,7 +20097,7 @@ GetMember
 Push "collect"
 CallMethod
 Pop
-Push "autoAlpha", 100, 1
+loc1595:Push "autoAlpha", 100, 1
 InitObject
 Push 0.5, register1, "uiNav"
 GetMember
@@ -20452,9 +20456,13 @@ GetMember
 Push "collect"
 CallMethod
 Pop
+Push register1, "modHUD_hasAnyBuffs"
+GetMember
+Not
+If loc18a95
 Push "autoAlpha", 100, 1
 InitObject
-Push 0, register1, "uiBuffs"
+Push 0.5, register1, "uiBuffs"
 GetMember
 Push 3, "com"
 GetVariable
@@ -20467,7 +20475,7 @@ GetMember
 Push "collect"
 CallMethod
 Pop
-Push "autoAlpha", 100, 1
+loc18a95:Push "autoAlpha", 100, 1
 InitObject
 Push 0, register1, "uiNav"
 GetMember
@@ -21868,6 +21876,8 @@ Push register2, "length"
 GetMember
 loc1a077:Not
 If loc1a443
+Push register1, "modHUD_hasAnyBuffs", true
+SetMember
 Push 620, register2, "length"
 GetMember
 Push 9, 2, "Math"
@@ -22098,11 +22108,7 @@ Push "_visible", false
 SetMember
 loc1a439:Jump loc1a0e1
 loc1a43e:Jump loc1a459
-loc1a443:Push register1, "uiBuffs"
-GetMember
-Push "_visible", 0
-Not
-Not
+loc1a443:Push register1, "modHUD_hasAnyBuffs", false
 SetMember
 loc1a459:Push register1, "dblBufferCounter", register1, "dblBufferCounter"
 GetMember
@@ -23752,6 +23758,8 @@ Pop
 Push register1, "m_iCurrentLine", 1
 SetMember
 Push register1, "m_bQuickItemsVisible", true
+SetMember
+Push register1, "modHUD_hasAnyBuffs", false
 SetMember
 loc1c0f8:Push "gui"
 GetVariable
