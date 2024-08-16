@@ -20036,83 +20036,117 @@ loc18372:Push register2
 Return
 }
 SetMember
+Push register1, "modGUI_ShowHideModules"
+DefineFunction2 "", 2, 5, false, false, true, false, true, false, false, true, false, 2, "show", 3, "fade_timeout" {
+Push 0
+StoreRegister 4
+Pop
+Push register2
+Not
+If loc0c67
+Push 100
+StoreRegister 4
+Pop
+loc0c67:Push register1, "m_bQuickItemsVisible"
+GetMember
+If loc0c7c
+Push undefined
+Return
+loc0c7c:Push register1, "modHUD_hasAnyBuffs"
+GetMember
+Not
+If loc0ce4
+Push "autoAlpha", register4, 1
+InitObject
+Push register3, register1, "uiBuffs"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+loc0ce4:Push register2
+If loc0d45
+Push "autoAlpha", register4, 1
+InitObject
+Push register3, register1, "uiBuffs"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+loc0d45:Push "autoAlpha", register4, 1
+InitObject
+Push register3, register1, "uiSelectedItems"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", register4, 1
+InitObject
+Push register3, register1, "uiBarsPC"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", register4, 1
+InitObject
+Push register3, register1, "uiNav"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+}
+SetMember
 Push register1, "showCombatMode"
 DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
 Push register1, "isHudVisible"
 GetMember
 Not
-If loc183a0
+If loc0e15
 Push undefined
 Return
-loc183a0:Push register1, "m_bQuickItemsVisible"
-GetMember
-Not
-If loc185d1
-Push "autoAlpha", 100, 1
-InitObject
-Push 0.5, register1, "uiSelectedItems"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
+loc0e15:Push 0.5, true, 2, register1, "modGUI_ShowHideModules"
 CallMethod
 Pop
-Push "autoAlpha", 100, 1
-InitObject
-Push 0.5, register1, "uiBarsPC"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-Push register1, "modHUD_hasAnyBuffs"
-GetMember
-Not
-If loc1595
-Push "autoAlpha", 100, 1
-InitObject
-Push 0.5, register1, "uiBuffs"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-loc1595:Push "autoAlpha", 100, 1
-InitObject
-Push 0.5, register1, "uiNav"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-loc185d1:Push "autoAlpha", 90, 1
+Push "autoAlpha", 90, 1
 InitObject
 Push 0.5, register1, "uiCombatMode"
 GetMember
@@ -20131,71 +20165,10 @@ Pop
 SetMember
 Push register1, "hideCombatMode"
 DefineFunction2 "", 0, 2, false, false, true, false, true, false, false, true, false {
-Push register1, "m_bQuickItemsVisible"
-GetMember
-Not
-If loc18348
-Push "autoAlpha", 0, 1
-InitObject
-Push 0.2, register1, "uiSelectedItems"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
+Push 0.2, false, 2, register1, "modGUI_ShowHideModules"
 CallMethod
 Pop
 Push "autoAlpha", 0, 1
-InitObject
-Push 0.2, register1, "uiBarsPC"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-Push "autoAlpha", 0, 1
-InitObject
-Push 0.2, register1, "uiBuffs"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-Push "autoAlpha", 0, 1
-InitObject
-Push 0.2, register1, "uiNav"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-loc18348:Push "autoAlpha", 0, 1
 InitObject
 Push 0.2, register1, "uiCombatMode"
 GetMember
@@ -20410,148 +20383,22 @@ Pop
 loc1883b:SetMember
 Push register1, "setFastMenuActive"
 DefineFunction2 "", 1, 3, false, false, true, false, true, false, false, true, false, 2, "value" {
-Push register1, "m_bQuickItemsVisible"
-GetMember
-PushDuplicate
-Not
-If loc1278
-Pop
 Push register1, "uiCombatMode"
 GetMember
 Push "_visible"
 GetMember
-Not
-loc1278:Not
-If loc1afde
+If loc1021
 Push register2
 Not
-If loc132d
-Push "autoAlpha", 100, 1
-InitObject
-Push 0, register1, "uiSelectedItems"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
+If loc1000
+Push 0.5, true, 2, register1, "modGUI_ShowHideModules"
 CallMethod
 Pop
-Push "autoAlpha", 100, 1
-InitObject
-Push 0, register1, "uiBarsPC"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
+Jump loc1021
+loc1000:Push 0, false, 2, register1, "modGUI_ShowHideModules"
 CallMethod
 Pop
-Push register1, "modHUD_hasAnyBuffs"
-GetMember
-Not
-If loc18a95
-Push "autoAlpha", 100, 1
-InitObject
-Push 0.5, register1, "uiBuffs"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-loc18a95:Push "autoAlpha", 100, 1
-InitObject
-Push 0, register1, "uiNav"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-Jump loc1afde
-loc132d:Push "autoAlpha", 0, 1
-InitObject
-Push 0, register1, "uiSelectedItems"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-Push "autoAlpha", 0, 1
-InitObject
-Push 0, register1, "uiBarsPC"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-Push "autoAlpha", 0, 1
-InitObject
-Push 0, register1, "uiBuffs"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-Push "autoAlpha", 0, 1
-InitObject
-Push 0, register1, "uiNav"
-GetMember
-Push 3, "com"
-GetVariable
-Push "greensock"
-GetMember
-Push "TweenLite"
-NewMethod
-Push 1, register1, "gCollector"
-GetMember
-Push "collect"
-CallMethod
-Pop
-loc1afde:Push register2, 1, register1, "_uFastMenu"
+loc1021:Push register2, 1, register1, "_uFastMenu"
 GetMember
 Push "setActive"
 CallMethod
@@ -21878,7 +21725,16 @@ loc1a077:Not
 If loc1a443
 Push register1, "modHUD_hasAnyBuffs", true
 SetMember
-Push 620, register2, "length"
+Push register1, "m_bQuickItemsVisible"
+GetMember
+If loc0e76
+Push register1, "uiBuffs"
+GetMember
+Push "_visible", 1
+Not
+Not
+SetMember
+loc0e76:Push 620, register2, "length"
 GetMember
 Push 9, 2, "Math"
 GetVariable
@@ -22109,6 +21965,12 @@ SetMember
 loc1a439:Jump loc1a0e1
 loc1a43e:Jump loc1a459
 loc1a443:Push register1, "modHUD_hasAnyBuffs", false
+SetMember
+Push register1, "uiBuffs"
+GetMember
+Push "_visible", 0
+Not
+Not
 SetMember
 loc1a459:Push register1, "dblBufferCounter", register1, "dblBufferCounter"
 GetMember
