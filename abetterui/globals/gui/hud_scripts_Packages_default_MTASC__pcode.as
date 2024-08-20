@@ -19546,8 +19546,61 @@ GetMember
 Push "call"
 CallMethod
 Pop
+Push "_global"
+GetVariable
+Push "mHUDArena"
+GetMember
+Push "ArenaExist"
+GetMember
+Not
+If loc17c05
+Push "autoAlpha", 100, 1
+InitObject
+Push 0, register1, "uiBarsPC"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 100, 1
+InitObject
+Push 0, register1, "uiSelectedItems"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+Push "autoAlpha", 0, 1
+InitObject
+Push 0, register1, "uiNav"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
 }
-SetMember
+loc17c05:SetMember
 Push register1, "Finalize"
 DefineFunction2 "", 0, 3, false, false, true, false, true, false, false, true, false {
 Push 0, register1, "gCollector"
@@ -20062,6 +20115,17 @@ DefineFunction2 "", 2, 5, false, false, true, false, true, false, false, true, f
 Push 0
 StoreRegister 4
 Pop
+Push "_global"
+GetVariable
+Push "mHUDArena"
+GetMember
+Push "ArenaExist"
+GetMember
+Not
+If loc0c65
+Push undefined
+Return
+loc0c65:
 Push register1, "m_bQuickItemsVisible"
 GetMember
 If loc0d57
@@ -21813,22 +21877,63 @@ SetMember
 Push register1, "modHUD_isHideBuffs"
 GetMember
 If loc1a2de
-Push register1, "uiBuffs"
+Push "autoAlpha", 100, 1
+InitObject
+Push 0, register1, "uiBuffs"
 GetMember
-Push "_visible", 1
-Not
-Not
-SetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
 loc1a2de:Push register1, "m_bQuickItemsVisible"
 GetMember
 If loc0e76
-Push register1, "uiBuffs"
+Push "autoAlpha", 100, 1
+InitObject
+Push 0, register1, "uiBuffs"
 GetMember
-Push "_visible", 1
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+loc0e76:Push "_global"
+GetVariable
+Push "mHUDArena"
+GetMember
+Push "ArenaExist"
+GetMember
 Not
-Not
-SetMember
-loc0e76:Push 620, register2, "length"
+If loc188d7
+Push "autoAlpha", 100, 1
+InitObject
+Push 0, register1, "uiBuffs"
+GetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
+loc188d7:Push 620, register2, "length"
 GetMember
 Push 9, 2, "Math"
 GetVariable
@@ -22060,12 +22165,21 @@ loc1a439:Jump loc1a0e1
 loc1a43e:Jump loc1a459
 loc1a443:Push register1, "modHUD_hasAnyBuffs", false
 SetMember
-Push register1, "uiBuffs"
+Push "autoAlpha", 0, 1
+InitObject
+Push 0, register1, "uiBuffs"
 GetMember
-Push "_visible", 0
-Not
-Not
-SetMember
+Push 3, "com"
+GetVariable
+Push "greensock"
+GetMember
+Push "TweenLite"
+NewMethod
+Push 1, register1, "gCollector"
+GetMember
+Push "collect"
+CallMethod
+Pop
 loc1a459:Push register1, "dblBufferCounter", register1, "dblBufferCounter"
 GetMember
 Increment
