@@ -539,24 +539,24 @@ class CMenuList extends CSlot
    function SetPosition(iPosition)
    {
       this.m_iCurrentPosition = iPosition;
+      // Rollover UP: Set every position to the last posable value
       if(this.m_iCurrentPosition < 0)
       {
          this.m_iCurrentPosition = this.m_aItemsData.length - 1;
+         this.m_iCurrentVisiblePosition = this.m_iListSize - 1;
+         this.m_iCurrentOffset = this.m_iCurrentPosition - this.m_iCurrentVisiblePosition;
       }
+      // Rollover DOWN: Set every position to 0
       else if(this.m_iCurrentPosition > this.m_aItemsData.length - 1)
       {
-         this.m_iCurrentPosition = 0;
+         this.m_iCurrentPosition = 0;  // Selected item
+         this.m_iCurrentVisiblePosition = 0;  // Selected position in inventory menu from 0 to 6
+         this.m_iCurrentOffset = 0;  // Position of scrollbar
       }
-      this.m_iCurrentVisiblePosition = this.m_iCurrentPosition - this.m_iCurrentOffset;
-      if(this.m_iCurrentVisiblePosition < 0)
+      // Not Rollover: Update only visible position
+      else
       {
-         this.m_iCurrentOffset += this.m_iCurrentVisiblePosition;
-         this.m_iCurrentVisiblePosition = 0;
-      }
-      else if(this.m_iCurrentVisiblePosition > this.m_iListSize)
-      {
-         this.m_iCurrentOffset += this.m_iCurrentVisiblePosition - this.m_iListSize;
-         this.m_iCurrentVisiblePosition = 0;
+         this.m_iCurrentVisiblePosition = this.m_iCurrentPosition - this.m_iCurrentOffset;
       }
    }
    function SetVisiblePosition(iPosition)
@@ -642,11 +642,20 @@ class CMenuList extends CSlot
                   this.UpdateListData();
                   this.UpdateGraphic();
                }
-               else
+               else if(this.m_iCurrentOffset > 0)
                {
                   this.ScrollUsed(this,this.m_iCurrentOffset - 1);
                   this.m_mcScroll.SetNewPosition(this.m_iCurrentOffset);
                   this.SetVisiblePosition(this.m_iCurrentVisiblePosition - 1);
+                  this.UpdateListData();
+                  this.UpdateGraphic();
+               }
+               // When m_iCurrentVisiblePosition and m_iCurrentOffset is 0, it means then we rollover down.
+               else
+               {
+                  this.SetVisiblePosition(this.m_iCurrentVisiblePosition - 1);
+                  this.ScrollUsed(this,this.m_iCurrentOffset);
+                  this.m_mcScroll.SetNewPosition(this.m_iCurrentOffset);
                   this.UpdateListData();
                   this.UpdateGraphic();
                }
@@ -664,9 +673,18 @@ class CMenuList extends CSlot
                }
                else
                {
-                  this.ScrollUsed(this,this.m_iCurrentOffset + 1);
-                  this.m_mcScroll.SetNewPosition(this.m_iCurrentOffset);
                   this.SetVisiblePosition(this.m_iCurrentVisiblePosition + 1);
+                  // When m_iCurrentVisiblePosition is at the end and m_iCurrentPosition becomes 0, it means we rollover up.
+                  if(this.m_iCurrentPosition == 0)
+                  {
+                     this.ScrollUsed(this,this.m_iCurrentOffset);
+                     this.m_mcScroll.SetNewPosition(this.m_iCurrentOffset);
+                  }
+                  else
+                  {
+                     this.ScrollUsed(this,this.m_iCurrentOffset + 1);
+                     this.m_mcScroll.SetNewPosition(this.m_iCurrentOffset);
+                  }
                   this.UpdateListData();
                   this.UpdateGraphic();
                }
