@@ -13295,11 +13295,6 @@ GetMember
 Push "SetNote"
 CallMethod
 Pop
-Push 0, 1, register1, "m_mcItemList"
-GetMember
-Push "SetPosition"
-CallMethod
-Pop
 Push register1, "bTrashTutorial"
 GetMember
 Push true
