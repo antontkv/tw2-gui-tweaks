@@ -126,6 +126,7 @@ class CList extends CSlot
    }
    function FilterChanged()
    {
+      this.ResetPosition();
       this.SetData(this.m_aNotFilteredItemsData);
    }
    function SortAlpabetically(a, b)
@@ -501,6 +502,13 @@ class CList extends CSlot
       {
          this.m_iCurrentVisiblePosition = this.m_iCurrentPosition - this.m_iCurrentOffset;
       }
+   }
+   function ResetPosition()
+   {
+      this.m_iCurrentPosition = 0;
+      this.m_iCurrentVisiblePosition = 0;
+      this.m_iCurrentOffset = 0;
+      this.m_mcScroll.SetNewPosition(this.m_iCurrentOffset);
    }
    function SetVisiblePosition(iPosition)
    {
