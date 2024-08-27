@@ -20740,7 +20740,7 @@ Push "txtDesc"
 GetMember
 Push "htmlText", register3
 SetMember
-Push "autoAlpha", 0, "after", 3, 2
+Push "autoAlpha", 0, 1
 InitObject
 Push 4, register1, "uiJournalEntry"
 GetMember
@@ -20786,7 +20786,7 @@ Push "txtDesc"
 GetMember
 Push "htmlText", register3
 SetMember
-Push "autoAlpha", 0, "after", 3, 2
+Push "autoAlpha", 0, 1
 InitObject
 Push 4, register1, "uiKnowledgeEntry"
 GetMember
@@ -20832,7 +20832,7 @@ Push "txtDesc"
 GetMember
 Push "htmlText", register3
 SetMember
-Push "autoAlpha", 0, "after", 3, 2
+Push "autoAlpha", 0, 1
 InitObject
 Push 4, register1, "uiAbilityEntry"
 GetMember
