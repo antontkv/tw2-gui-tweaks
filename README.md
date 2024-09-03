@@ -1,4 +1,4 @@
-# The Witcher 2 Menu Tweaks
+# The Witcher 2 GUI Tweaks
 
 - Add Main, Pause, Inventory and Journal menus rollover.
 - Move save option right after continue option in pause menu.

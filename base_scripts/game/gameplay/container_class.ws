@@ -295,12 +295,12 @@ class CContainer extends CGameplayEntity
 				}			
 				
 				args.PushBack( FlashValueFromString( itemName ) );
-				// Menu Tweaks +++ Show read status for books in loot window
+				// GUI Tweaks +++ Show read status for books in loot window
 				if (itemTags.Contains('SortTypeBook') && FactsDoesExist(NameToString(inventory.GetItemName( itemId )) + "_Examined"))
 					args.PushBack( FlashValueFromString( "[R] " + GetLocStringByKeyExt( itemName ) ) );
 				else
 					args.PushBack( FlashValueFromString( GetLocStringByKeyExt( itemName ) ) );
-				// Menu Tweaks ---
+				// GUI Tweaks ---
 				args.PushBack( FlashValueFromInt( add_quantity + inventory.GetItemQuantity( itemId ) ) );
 				args.PushBack( FlashValueFromString( UniqueIdToString( itemId ) ) );
 				args.PushBack( FlashValueFromString( "<img src='img://globals/gui/icons/items/" + StrReplaceAll( StrReplaceAll( itemName , " ", ""), "'", "" ) + "_64x64.dds' width='30' height='30'>" ) ) ;
@@ -337,12 +337,12 @@ class CContainer extends CGameplayEntity
 				}					
 				
 				args.PushBack( FlashValueFromString( itemName ) );
-				// Menu Tweaks +++ Show read status for books in loot window
+				// GUI Tweaks +++ Show read status for books in loot window
 				if (itemTags.Contains('SortTypeBook') && FactsDoesExist(NameToString(inventory.GetItemName( itemId )) + "_Examined"))
 					args.PushBack( FlashValueFromString( "[R] " + GetLocStringByKeyExt( itemName ) ) );
 				else
 					args.PushBack( FlashValueFromString( GetLocStringByKeyExt( itemName ) ) );
-				// Menu Tweaks ---
+				// GUI Tweaks ---
 				args.PushBack( FlashValueFromInt( add_quantity + inventory.GetItemQuantity( itemId ) ) );
 				args.PushBack( FlashValueFromString( UniqueIdToString( itemId ) ) );
 				args.PushBack( FlashValueFromString( "<img src='img://globals/gui/icons/items/" + StrReplaceAll( StrReplaceAll( itemName , " ", ""), "'", "" ) + "_64x64.dds' width='30' height='30'>" ) ) ;
@@ -429,12 +429,12 @@ class CContainer extends CGameplayEntity
 				AS_item = theHud.CreateAnonymousObject();
 				
 				itemName = inventory.GetItemName( itemId );
-				// Menu Tweaks +++ Show read status for books in loot window
+				// GUI Tweaks +++ Show read status for books in loot window
 				if (itemTags.Contains('SortTypeBook') && FactsDoesExist(NameToString(inventory.GetItemName( itemId )) + "_Examined"))
 					theHud.SetString( "Name",	"[R] " + GetLocStringByKeyExt( itemName ),		AS_item );
 				else
 					theHud.SetString( "Name",	GetLocStringByKeyExt( itemName ),		AS_item );
-				// Menu Tweaks ---
+				// GUI Tweaks ---
 				theHud.SetString( "Icon",	"img://globals/gui/icons/items/" + StrReplaceAll(itemName, " ", "") + "_64x64.dds",	AS_item );
 				theHud.SetFloat	( "Class",	(int)inventory.GetItemClass( itemId ),	AS_item );
 				
@@ -462,12 +462,12 @@ class CContainer extends CGameplayEntity
 				AS_item = theHud.CreateAnonymousObject();
 				
 				itemName = inventory.GetItemName( itemId );
-				// Menu Tweaks +++ Show read status for books in loot window
+				// GUI Tweaks +++ Show read status for books in loot window
 				if (itemTags.Contains('SortTypeBook') && FactsDoesExist(NameToString(inventory.GetItemName( itemId )) + "_Examined"))
 					theHud.SetString( "Name",	"[R] " + GetLocStringByKeyExt( itemName ),		AS_item );
 				else
 					theHud.SetString( "Name",	GetLocStringByKeyExt( itemName ),		AS_item );
-				// Menu Tweaks ---
+				// GUI Tweaks ---
 				theHud.SetString( "Icon",	"img://globals/gui/icons/items/" + StrReplaceAll(itemName, " ", "") + "_64x64.dds",	AS_item );
 				theHud.SetFloat	( "Class",	(int)inventory.GetItemClass( itemId ),	AS_item );
 				

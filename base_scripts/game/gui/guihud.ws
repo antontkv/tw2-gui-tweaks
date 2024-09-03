@@ -33,12 +33,12 @@ class CGuiHud
 	public var combatLogEnabled : bool;
 	default combatLogEnabled = true;
 
-	//++
+	// GUI Tweaks +++
 	private var modHUD_isHideHealth : bool;
 	private var modHUD_isHideSelectedItems : bool;
 	private var modHUD_isHideBuffs : bool;
 	private var modHUD_isHideMap : bool;
-	//--
+	// GUI Tweaks ---
 	
 	event OnGameStarting()
 	{
@@ -53,13 +53,13 @@ class CGuiHud
 			Log( "No mHUD found at the Scaleform side!" );
 		}
 
-		// +++
+		// GUI Tweaks +++
 		modHUD_isHideHealth = modHUD_getSettingsHideValue("HideHealth");
 		modHUD_isHideSelectedItems = modHUD_getSettingsHideValue("HideSelectedItems");
 		modHUD_isHideBuffs = modHUD_getSettingsHideValue("HideBuffs");
 		modHUD_isHideMap = modHUD_getSettingsHideValue("HideMap");
 		modHUD_applyHideValues();
-		// ---
+		// GUI Tweaks ---
 		
 		theHud.InvokeOneArg( "setIsFastMenuActive", FlashValueFromBoolean( false ), AS_hud );
 		
@@ -95,7 +95,7 @@ class CGuiHud
 		}	
 	}
 
-	//+++
+	// GUI Tweaks +++
 	function modHUD_getSettingsHideValue(setting_name: string): bool
 	{
 		var value: float;
@@ -121,7 +121,7 @@ class CGuiHud
 
 		theHud.InvokeManyArgs("vHUD.modHUD_setHideValues", arguments);
 	}
-	//---
+	// GUI Tweaks ---
 	
 	final function UpdateKeyBindings()
 	{
@@ -1268,6 +1268,7 @@ function AddDamageIcon() : string
 	return "<img src='img://globals/gui/icons/combatlog/dmg_12x12.dds'>";
 }
 
+// GUI Tweaks +++
 exec function GUICheckInCombat()
 {
 	if (thePlayer.IsInCombat())
@@ -1283,3 +1284,4 @@ exec function modHUD_setHideValues()
 {
 	theHud.m_hud.modHUD_applyHideValues();
 }
+// GUI Tweaks ---

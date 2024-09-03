@@ -335,7 +335,7 @@ class CGuiInventory extends CGuiPanel
 		
 		str = GetLocStringByKeyExt( NameToString( thePlayer.GetInventory().GetItemName( thePlayer.GetLastBook() ) ) + "_entry" );
 		theHud.InvokeOneArg("SetBookText", FlashValueFromString(str), AS_inventory );
-		FillInventory(); // Menu Tweaks +++ Show read status for books in the inventory menu
+		FillInventory(); // GUI Tweaks +++ Show read status for books in the inventory menu
 	}
 
 	private final function UpgradeItem( itemIdxF, upgradeIdxF : float )

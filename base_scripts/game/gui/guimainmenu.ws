@@ -770,9 +770,9 @@ import class CGuiMainMenu extends CGuiPanel
 		InsertMenuButton( AS_MenuItems, MM_BTN_LOAD_GAME, StrUpperUTF( GetLocStringByKeyExt( "menuLoad" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuLoad_t" ) ) );
 		InsertMenuButton( AS_MenuItems, MM_BTN_OPTIONS, StrUpperUTF( GetLocStringByKeyExt( "menuSettings" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuSettings_t" ) ) );
 		InsertMenuButton( AS_MenuItems, MM_BTN_EXIT_GAME, StrUpperUTF( GetLocStringByKeyExt( "menuExitCurrentGame" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuExitCurrentGame_t" ) ) );
-		// Menu Tweaks +++ Add Game Exit option
+		// GUI Tweaks +++ Add Game Exit option
 		InsertMenuButton( AS_MenuItems, MM_BTN_QUIT, StrUpperUTF( GetLocStringByKeyExt( "menuQuit" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuQuit_t" ) ) );
-		// Menu Tweaks ---
+		// GUI Tweaks ---
 	}
 	
 	private final function FillMainMenu( AS_MenuItems : int )
@@ -780,9 +780,9 @@ import class CGuiMainMenu extends CGuiPanel
 		//Tutorial should be only enabled from "New Game" option
 		//InsertMenuButton( AS_MenuItems, MM_BTN_TUTORIAL, GetLocStringByKeyExt( "tutorial" ), GetLocStringByKeyExt( "tutorial_t" ) );
 
-		// Menu Tweaks +++ Continue from main menu option
+		// GUI Tweaks +++ Continue from main menu option
 		InsertMenuButton( AS_MenuItems, MM_BTN_CLOSE, StrUpperUTF( GetLocStringByKeyExt( "menuClose" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuClose_t" ) ) );
-		// Menu Tweaks ---
+		// GUI Tweaks ---
 		InsertMenuButton( AS_MenuItems, MM_BTN_ARENA, StrUpperUTF( GetLocStringByKeyExt( "arena" ) ), StrUpperUTF( GetLocStringByKeyExt( "arena_t" ) ) );
 		InsertMenuButton( AS_MenuItems, MM_BTN_NEW_GAME, StrUpperUTF( GetLocStringByKeyExt( "menuNew" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuNew_t" ) ) );
 		InsertMenuButton( AS_MenuItems, MM_BTN_LOAD_GAME, StrUpperUTF( GetLocStringByKeyExt( "menuLoad" ) ), StrUpperUTF( GetLocStringByKeyExt( "menuLoad_t" ) ) );
@@ -1272,13 +1272,13 @@ import class CGuiMainMenu extends CGuiPanel
 				ClosePanel();
 				break;
 			}
-			// Menu Tweaks +++ Add Game Exit option
+			// GUI Tweaks +++ Add Game Exit option
 			case MM_BTN_QUIT:
 			{
 				QuitApplication();
 				break;
 			}
-			// Menu Tweaks ---
+			// GUI Tweaks ---
 		}
 	}
 	
@@ -1286,13 +1286,13 @@ import class CGuiMainMenu extends CGuiPanel
 	{
 		switch( button )
 		{
-			// Menu Tweaks +++ Continue from main menu option
+			// GUI Tweaks +++ Continue from main menu option
 			case MM_BTN_CLOSE:
 			{
 				InputLoadGame(0);
 				break;
 			}
-			// Menu Tweaks ---
+			// GUI Tweaks ---
 			case MM_BTN_TUTORIAL:
 			{
 				Tutorial( false );
